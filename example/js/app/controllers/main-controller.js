@@ -1,5 +1,15 @@
 app.controller('MainController', ['$scope', '$http',
     function MainController($scope, $http) {
+        $scope.selectedCountry = null;
+        $scope.selectedPerson = null;
+        // angucomplete callback function
+        $scope.countryCallback = function (result) {
+            $scope.selectedCountry = result;
+        }
+        $scope.personCallback = function (result) {
+            $scope.selectedPerson = result;
+        }
+
 
         $scope.people = [
             {firstName: "Daryl", surname: "Rowland", twitter: "@darylrowland", pic: "img/daryl.jpeg"},
@@ -252,6 +262,5 @@ app.controller('MainController', ['$scope', '$http',
             {name: 'Zambia', code: 'ZM'},
             {name: 'Zimbabwe', code: 'ZW'}
         ];
-
     }
 ]);
